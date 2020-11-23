@@ -21,7 +21,7 @@ CREATE TABLE `food` (
   `price` INT(10) UNSIGNED NOT NULL,
   `image` VARCHAR(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Table structure for table `paket` */
 
@@ -31,7 +31,7 @@ CREATE TABLE `paket` (
   `image` VARCHAR(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` INT(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=INNODB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Table structure for table `konten_paket` */
 
@@ -56,7 +56,7 @@ CREATE TABLE `order` (
   `cust_name` VARCHAR(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cust_phone` VARCHAR(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=INNODB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Table structure for table `order_detail_food` */
 
