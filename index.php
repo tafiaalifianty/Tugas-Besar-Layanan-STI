@@ -13,7 +13,8 @@
               echo '<div class="row mt-3 mb-3">';
           }
 ?>
-    <a href="detail_food.php?id=<?=$row['id']?>" class="col card text-center ml-3 mr-3 text-decoration-none" style="padding: 1rem;">
+    <!-- <a href="detail_food.php?id=<?=$row['id']?>" class="col card text-center ml-3 mr-3 text-decoration-none" style="padding: 1rem;"> -->
+    <a href="detail/<?=$row['id']?>" class="col card text-center ml-3 mr-3 text-decoration-none" style="padding: 1rem;">
         <div class="row card-body justify-content-center">
             <img src="admin/<?=$row['image']?>" class="card-img-top img-fluid mt-2" style="display:block; margin-left:auto; margin-right:auto; max-height:200px; width:auto;">
         </div>

@@ -1,0 +1,9 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^detail/([0-9]*)$ ./detail_food.php?id=$1
+RewriteRule ^detail-paket/([0-9]*)$ ./detail_paket.php?id=$1
+
+RewriteRule ^paket$ ./paket.php
+RewriteRule ^keranjang$ ./keranjang.php
+RewriteRule ^index$ ./index.php

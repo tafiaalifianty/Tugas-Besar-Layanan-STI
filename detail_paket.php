@@ -5,7 +5,9 @@
     exit;
   }
 
-  $id = $_GET['id'];
+  $data = explode("/",$_GET['id']);
+  
+  $id = $data[0];
 
   include_once 'lib/db_conf.php';
 
@@ -72,7 +74,7 @@
         setcookie('cart_cookie_paket', serialize($cart), time() + (86400 * 30), "/");
     }
 
-    header("Location: paket.php");
+    header("Location: ". BASE_URL ."keranjang");
     exit;
   }
 
@@ -81,10 +83,10 @@
 ?>
 
 <div class="mb-2 mt-4 ml-2 mr-2 col row">
-  <img class="col-5" src="admin/<?=$row['image']?>" height="350px" style="display:block; width:auto;">
+  <img class="col-5" src="<?=BASE_URL;?>admin/<?=$row['image']?>" height="350px" style="display:block; width:auto;">
   <div class="col ml-2">
     <p class="mt-3" style="color: black; font-size: 30px;"><b><?=$nama_paket?></b></p>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" action="<?=BASE_URL;?>detail-paket/<?=$row['id'];?>" enctype="multipart/form-data">
       <input id="qty" name="qty" class="ml-1 mr-1 row form-control" style="max-width: 200px;" value="<?=$cur_qty?>" step="1" min="0" type="number" placeholder="Jumlah Makanan" required>
       <button id="submit" name="submit" value="submit" type="submit" class="mt-3 btn btn-warning">Tambah ke Keranjang</button>
     </form>
@@ -125,7 +127,7 @@
                     <td><?=$row['name']?></td>
                     <td><?=$row['price']?></td>
                     <td><?=$row['qty']?></td>
-                    <td><img src="admin/<?=$row['image']?>" style="max-height: 250px;"></td>
+                    <td><img src="<?=BASE_URL;?>admin/<?=$row['image']?>" style="max-height: 250px;"></td>
                 </tr>
                 <?php endwhile;?>
             </tbody>

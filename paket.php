@@ -13,9 +13,9 @@
               echo '<div class="row mt-3 mb-3">';
           }
 ?>
-    <a href="detail_paket.php?id=<?=$row['id']?>" class="col card text-center ml-3 mr-3 text-decoration-none" style="padding: 1rem;">
+    <a href="detail-paket/<?=$row['id']?>" class="col card text-center ml-3 mr-3 text-decoration-none" style="padding: 1rem;">
         <div class="row card-body justify-content-center">
-            <img src="admin/<?=$row['image']?>" class="card-img-top img-fluid mt-2" style="display:block; margin-left:auto; margin-right:auto; max-height:200px; width:auto;">
+            <img src="<?=BASE_URL;?>admin/<?=$row['image']?>" class="card-img-top img-fluid mt-2" style="display:block; margin-left:auto; margin-right:auto; max-height:200px; width:auto;">
         </div>
         <div class="card-footer text-center">
             <p class="mt-3" style="color: black;"><b><?=$row['name']?></b></p>

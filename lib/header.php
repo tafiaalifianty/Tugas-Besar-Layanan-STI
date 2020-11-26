@@ -1,3 +1,4 @@
+<?php include_once 'lib/db_conf.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,14 +8,14 @@
 
     <!--<link rel="icon" href="../img/logo_header.png">-->
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="<?=BASE_URL;?>css/bootstrap.min.css">
+    <script src="<?=BASE_URL;?>js/jquery.min.js"></script>
 
     <title>Food Order System</title>
   </head>
   <body>
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000080;">
-      <a class="navbar-brand pull-left" href="#">Menu</a>
+      <a class="navbar-brand pull-left" href="<?=BASE_URL;?>">Menu</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -22,13 +23,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-              <a class="nav-link" href="index.php" id="home">Beranda</a>
+              <a class="nav-link" href="<?=BASE_URL;?>" id="home">Beranda</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="paket.php" id="paket">Paket</a>
+              <a class="nav-link" href="<?=BASE_URL;?>paket" id="paket">Paket</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="keranjang.php" id="cart">Keranjang</a>
+              <a class="nav-link" href="<?=BASE_URL;?>keranjang" id="cart">Keranjang</a>
           </li>
       </div>
       </nav>

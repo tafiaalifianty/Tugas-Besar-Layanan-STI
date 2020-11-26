@@ -4,7 +4,10 @@
     exit;
   }
 
-  $id = $_GET['id'];
+  $data = explode("/",$_GET['id']);
+  
+  $id = $data[0];
+  
 
   include_once 'lib/db_conf.php';
 
@@ -73,18 +76,19 @@
         setcookie('cart_cookie_food', serialize($cart), time() + (86400 * 30), "/");
     }
 
-    header("Location: index.php");
+    header("Location: ".BASE_URL."index.php");
     exit;
   }
 
   while ($row = mysqli_fetch_assoc($data)):
+    // var_dump($row); die();
 ?>
 
 <div class="mb-2 mt-4 ml-2 mr-2 col row">
-  <img class="col-5" src="admin/<?=$row['image']?>" height="350px" style="display:block; width:auto;">
+  <img class="col-5" src="<?=BASE_URL;?>admin/<?=$row['image']?>" height="350px" style="display:block; width:auto;">
   <div class="col ml-2">
     <p class="mt-3" style="color: black; font-size: 30px;"><b><?=$row['name']?></b></p>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" action="<?=BASE_URL;?>detail/<?=$row['id'];?>" enctype="multipart/form-data">
       <input id="qty" name="qty" class="ml-1 mr-1 row form-control" style="max-width: 200px;" value="<?=$cur_qty?>" step="1" min="0" type="number" placeholder="Jumlah Makanan" required>
       <button id="submit" name="submit" value="submit" type="submit" class="mt-3 btn btn-warning">Tambah ke Keranjang</button>
     </form>
