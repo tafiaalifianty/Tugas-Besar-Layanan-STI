@@ -74,7 +74,7 @@
         setcookie('cart_cookie_food', serialize($cart), time() + (86400 * 30), "/");
     }
 
-    header("Location: ".BASE_URL."index.php");
+    header("Location: ".BASE_URL);
     exit;
   }
 
