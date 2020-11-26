@@ -36,7 +36,6 @@
 
   $tot_price = 0;
   
-  include_once 'lib/db_conf.php';
 
   if(isset($_POST['order'])){
     $tot_items = $cart_length_food + $cart_length_paket;

@@ -1,6 +1,6 @@
 <?php include_once 'lib/header.php';
   if(!isset($_GET['id'])){
-    header("Location: " . BASE_URL);
+    echo '<script>window.location.href = \''.BASE_URL.'\';</script>';
     exit;
   }
 
@@ -15,7 +15,7 @@
   $total_row = mysqli_num_rows($data);
 
   if($total_row == 0):
-    header("Location: " . BASE_URL);
+    echo '<script>alert(\'Makanan tidak ditemukan!\');window.location.href = \''.BASE_URL.'\';</script>';
     exit;
   endif;
 
@@ -74,7 +74,7 @@
         setcookie('cart_cookie_food', serialize($cart), time() + (86400 * 30), "/");
     }
 
-    header("Location: ".BASE_URL);
+    echo '<script>window.location.href = \''.BASE_URL.'\';</script>';
     exit;
   }
 

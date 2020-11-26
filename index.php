@@ -2,7 +2,6 @@
 
 <?php
     //Mendapatkan data makanan untuk ditampilkan pada halaman utama
-    include_once 'lib/db_conf.php';
     $cnt = 0;
     $sql = "SELECT * FROM `food`;";
     $data = mysqli_query($conn, $sql);

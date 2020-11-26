@@ -1,4 +1,5 @@
-<?php include_once 'lib/db_conf.php'; ?>
+<?php session_start(); 
+include_once 'lib/db_conf.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>

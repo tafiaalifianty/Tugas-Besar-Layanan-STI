@@ -1,7 +1,7 @@
 <?php include_once 'lib/header.php';
   //Bekerja mirip seperti detail_food.php
   if(!isset($_GET['id'])){
-    header("Location: paket.php");
+    echo '<script>window.location.href = \''.BASE_URL.'paket\';</script>';
     exit;
   }
 
@@ -9,7 +9,6 @@
   
   $id = $data[0];
 
-  include_once 'lib/db_conf.php';
 
   $sql = "SELECT * FROM `paket` WHERE `id` = $id;";
 
@@ -17,7 +16,7 @@
   $total_row = mysqli_num_rows($data);
 
   if($total_row == 0):
-    header("Location: paket.php");
+    echo '<script>alert(\'Paket tidak ditemukan!\');window.location.href = \''.BASE_URL.'paket\';</script>';
     exit;
   endif;
 
@@ -74,7 +73,7 @@
         setcookie('cart_cookie_paket', serialize($cart), time() + (86400 * 30), "/");
     }
 
-    header("Location: ". BASE_URL ."keranjang");
+    echo '<script>window.location.href = \''.BASE_URL.'\';</script>';
     exit;
   }
 
@@ -141,8 +140,8 @@
     });
 </script>
 
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/dataTables.bootstrap4.min.js"></script>
+<script src="<?=BASE_URL;?>js/jquery.dataTables.min.js"></script>
+<script src="<?=BASE_URL;?>js/dataTables.bootstrap4.min.js"></script>
 
 <?php include_once 'lib/footer.php';
   $conn->close();
