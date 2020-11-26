@@ -1,7 +1,7 @@
 <?php include_once 'lib/header.php';?>
 
 <div class="mb-2 mt-4 ml-2 mr-2 col row">
-    <a href="food_detail.php" class="btn btn-success ml-auto">Makanan Baru</a>
+    <a href="food/create" class="btn btn-success ml-auto">Makanan Baru</a>
 </div>
 
 <div class="card" style="margin: 2rem;">
@@ -19,8 +19,6 @@
             </thead>
             <tbody>
                 <?php
-                    include_once 'lib/db_conf.php';
-
                     $sql = "SELECT * FROM `food`";
 
                     $data = mysqli_query($conn, $sql);
@@ -33,7 +31,7 @@
                     <td><?=$row['price']?></td>
                     <td><img src="<?=$row['image']?>" style="max-height: 250px;"></td>
                     <td>
-                        <a href="delete_food.php?id=<?=$row['id']?>" class="btn btn-danger">Hapus</a>
+                        <a href="food/delete/<?=$row['id']?>" class="btn btn-danger">Hapus</a>
                     </td>
                 </tr>
                 <?php endwhile;?>

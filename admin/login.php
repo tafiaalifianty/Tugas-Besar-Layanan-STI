@@ -24,7 +24,7 @@
                 clear_cookie('save_uname');
                 clear_cookie('save_pass');
             }
-            echo "<script language=\"javascript\">window.location.href = 'index.php';</script>";
+            echo "<script language=\"javascript\">window.location.href = '".BASE_URL."';</script>";
         }else{
             echo "<script language=\"javascript\">alert(\"Username atau password salah!\");</script>";
         }
@@ -65,7 +65,7 @@
         <div class="card-footer">
             <div class="d-inline-flex align-content-center flex-wrap">
             <small class="justify-content-center align-self-center">Tidak punya akun?</small>
-            <a class="btn btn-sm btn-link" href="register.php">Register disini</a>
+            <a class="btn btn-sm btn-link" href="<?=BASE_URL;?>register">Register disini</a>
             </div>
         </div>
     </div>

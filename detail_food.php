@@ -1,6 +1,6 @@
 <?php include_once 'lib/header.php';
   if(!isset($_GET['id'])){
-    header("Location: index.php");
+    header("Location: " . BASE_URL);
     exit;
   }
 
@@ -9,15 +9,13 @@
   $id = $data[0];
   
 
-  include_once 'lib/db_conf.php';
-
   $sql = "SELECT * FROM `food` WHERE `id` = $id;";
 
   $data = mysqli_query($conn, $sql);
   $total_row = mysqli_num_rows($data);
 
   if($total_row == 0):
-    header("Location: index.php");
+    header("Location: " . BASE_URL);
     exit;
   endif;
 

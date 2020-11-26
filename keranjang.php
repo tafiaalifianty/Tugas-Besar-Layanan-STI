@@ -7,7 +7,7 @@
     }
   function keranjangKosong(){
     echo '<script>alert(\'Keranjang kosong, mari buat Order terlebih dahulu!\');
-        window.location.href = \'index.php\';</script>';
+        window.location.href = \''.BASE_URL.'\';</script>';
     exit;
   }
 
@@ -85,7 +85,7 @@
         clear_cookie('cart_cookie_food');
         clear_cookie('cart_cookie_paket');
         echo '<script>alert(\'Berhasil membuat order, tunggu pihak restoran mengkontak anda!\');
-            window.location.href = \'index.php\';</script>';
+            window.location.href = \''.BASE_URL.'\';</script>';
     }
   }
 ?>

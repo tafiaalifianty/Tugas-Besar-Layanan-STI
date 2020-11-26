@@ -26,11 +26,10 @@
                     //Apabila sukses upload
                     if(move_uploaded_file($tmpFilePath, $newFilePath)) {
                         //Masukan data makanan terbaru
-                        include_once 'lib/db_conf.php';
                         $sql = "INSERT INTO `food` SET `name`='$nama', `price`=$harga, `image`='$newFilePath';";
 
                         if(mysqli_query($conn, $sql)){
-                            echo "<script language=\"javascript\">window.location.href = 'food.php';</script>";
+                            echo "<script language=\"javascript\">window.location.href = '".BASE_URL."food';</script>";
                         }
                         $conn->close();
                     }
@@ -44,7 +43,7 @@
 
 <div class="card ml-3 mr-3">
     <div class="card-body">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" action="<?=BASE_URL;?>food/create" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" required>

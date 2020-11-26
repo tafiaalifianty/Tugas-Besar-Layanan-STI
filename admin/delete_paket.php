@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (!isset($_SESSION['username']) || !isset($_SESSION['password'])){
-        header("Location: login.php");
+        header("Location: " . BASE_URL);
         exit;
     }
     if(isset($_GET['id'])){
@@ -22,6 +22,6 @@
         if(mysqli_query($conn, $sql)){}
         $conn->close(); 
     }
-    header("Location: paket.php");
+    header("Location: ". BASE_URL ."paket");
     exit;
 ?>

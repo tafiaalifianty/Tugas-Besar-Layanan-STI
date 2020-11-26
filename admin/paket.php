@@ -2,7 +2,7 @@
 
 
 <div class="mb-2 mt-4 ml-2 mr-2 col row">
-    <a href="paket_detail.php" class="btn btn-success ml-auto">Paket Baru</a>
+    <a href="<?=BASE_URL;?>paket/create" class="btn btn-success ml-auto">Paket Baru</a>
 </div>
 
 <div class="card" style="margin: 2rem;">
@@ -20,8 +20,6 @@
             </thead>
             <tbody>
                 <?php
-                    include_once 'lib/db_conf.php';
-
                     $sql = "SELECT * FROM `paket`";
 
                     $data = mysqli_query($conn, $sql);
@@ -34,8 +32,8 @@
                     <td><?=$row['price']?></td>
                     <td><img src="<?=$row['image']?>" style="max-height: 250px;"></td>
                     <td>
-                        <a href="delete_paket.php?id=<?=$row['id']?>" class="btn btn-danger">Hapus</a>
-                        <a href="paket_food_detail.php?id=<?=$row['id']?>" class="btn btn-success">Makanan</a>
+                        <a href="<?=BASE_URL;?>paket/delete/<?=$row['id']?>" class="btn btn-danger">Hapus</a>
+                        <a href="<?=BASE_URL;?>paket/detail/<?=$row['id']?>" class="btn btn-success">Makanan</a>
                     </td>
                 </tr>
                 <?php endwhile;?>

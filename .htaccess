@@ -7,3 +7,26 @@ RewriteRule ^detail-paket/([0-9]*)$ ./detail_paket.php?id=$1
 RewriteRule ^paket$ ./paket.php
 RewriteRule ^keranjang$ ./keranjang.php
 RewriteRule ^index$ ./index.php
+
+# login
+RewriteRule ^admin/login$ ./admin/login.php
+RewriteRule ^admin/register$ ./admin/register.php
+
+# menu
+RewriteRule ^admin/food$ ./admin/food.php
+RewriteRule ^admin/paket$ ./admin/paket.php
+RewriteRule ^admin/logout$ ./admin/logout.php
+
+# admin index
+RewriteRule ^admin/ekspor_customer$ ./admin/ekspor_customer.php
+RewriteRule ^admin/finish/([0-9]*)$ ./admin/change_order_status.php?id=$1
+RewriteRule ^admin/order-detail/([0-9]*)$ ./admin/order_detail.php?id=$1
+
+# menu Makanan
+RewriteRule ^admin/food/create$ ./admin/food_detail.php
+RewriteRule ^admin/food/delete/([0-9]*)$ ./admin/delete_food.php?id=$1
+
+# menu Paket
+RewriteRule ^admin/paket/create$ ./admin/paket_detail.php
+RewriteRule ^admin/paket/detail/([0-9]*)$ ./admin/paket_food_detail.php?id=$1
+RewriteRule ^admin/paket/delete/([0-9]*)$ ./admin/delete_paket.php?id=$1

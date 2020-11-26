@@ -1,6 +1,6 @@
 <?php include_once 'lib/header.php';?>
 <div class="mb-2 mt-4 ml-2 mr-2 col row">
-    <a href="ekspor_customer.php" class="btn btn-success ml-auto">Ekspor Data Customer</a>
+    <a href="./ekspor_customer" class="btn btn-success ml-auto">Ekspor Data Customer</a>
 </div>
 
 <div class="card" style="margin: 2rem;">
@@ -20,9 +20,9 @@
             </thead>
             <tbody>
                 <?php
-                    include_once 'lib/db_conf.php';
+                    
                     //Menampilkan order yang memiliki status 0 (belum selesai)
-                    $sql = "SELECT * FROM `order` WHERE `status`=0";
+                    $sql = "SELECT * FROM `order` order by `status` asc";
 
                     $data = mysqli_query($conn, $sql);
                     // Membaca data array menggunakan foreach
@@ -36,8 +36,12 @@
                     <td><?=$row['cust_name']?></td>
                     <td><?=$row['cust_phone']?></td>
                     <td>
-                        <a href="change_order_status.php?id=<?=$row['id']?>" class="btn btn-success">Selesai</a>
-                        <a href="order_detail.php?id=<?=$row['id']?>" class="btn btn-primary">Detail</a>
+                        <?php if($row['status'] == 0){ ?>
+                        <a href="./finish/<?=$row['id']?>" class="btn btn-success">Selesai</a>
+                        <?php }else{ ?>
+                        <span class="btn btn-default">Selesai</span>
+                        <?php } ?>
+                        <a href="./order-detail/<?=$row['id']?>" class="btn btn-primary">Detail</a>
                     </td>
                 </tr>
                 <?php endwhile;?>
@@ -51,9 +55,9 @@
         //tabel order diurutkan bedasarkan tanggal order terakhir
         //asc atau desc
         var table = $('#tabel').DataTable({
-            order: [
-                [1, 'desc']
-            ]
+            // order: [
+            //     [1, 'desc']
+            // ]
         });
     });
     var element = document.getElementById("beranda");

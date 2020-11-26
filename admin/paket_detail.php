@@ -23,12 +23,11 @@
                     $newFilePath = "gambar/paket/" . $t_nama_file;
                 
                     if(move_uploaded_file($tmpFilePath, $newFilePath)) {
-                        include_once 'lib/db_conf.php';
                         $sql = "INSERT INTO `paket` SET `name`='$nama', `price`=$harga, `image`='$newFilePath';";
 
                         if(mysqli_query($conn, $sql)){
                             $cur_id = mysqli_insert_id($conn);
-                            echo "<script language=\"javascript\">window.location.href = 'paket_food_detail.php?id=$cur_id';</script>";
+                            echo "<script language=\"javascript\">window.location.href = '".BASE_URL."paket/detail/$cur_id';</script>";
                         }
                         $conn->close();
                     }
@@ -42,7 +41,7 @@
 
 <div class="card ml-3 mr-3">
     <div class="card-body">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" action="<?=BASE_URL;?>paket/create" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" required>

@@ -20,7 +20,7 @@
                 //Apabila sesuai daftarkan admin bedasarkan datanya
                 $sql = "INSERT INTO `admin` SET `username`='$uname', `password`='$pass', `phone`='$phone';";
                 if(mysqli_query($conn, $sql)){
-                    echo "<script language=\"javascript\">window.location.href = 'login.php';</script>";
+                    echo "<script language=\"javascript\">window.location.href = '".BASE_URL."login';</script>";
                 }else{
                     echo "<script language=\"javascript\">alert(\"Register kredensial gagal!\");</script>";
                 }
@@ -41,7 +41,7 @@
     <div class="row justify-content-center" style="margin-top: 3rem;">
     <div class="card" style="width: 20rem;">
         <div class="card-body">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" action="<?=BASE_URL;?>register" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="uname">Username</label>
                 <input type="text" class="form-control" id="uname" name="uname" required>
@@ -59,7 +59,7 @@
                 <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
             <button type="submit" class="btn btn-primary" id="register" name="register" value="register">Register</button>
-            <a class="btn btn-danger" href="login.php">Kembali</a>
+            <a class="btn btn-danger" href="<?=BASE_URL;?>login">Kembali</a>
         </form>
         </div>
     </div>

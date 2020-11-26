@@ -48,7 +48,7 @@
 
     echo '<script>window.location.href = \'ekspor/data_customer.xlsx\';
         setTimeout(function() {
-            window.location = "index.php";
+            window.location = "'.BASE_URL.'";
         }, 100);
     </script>';
 

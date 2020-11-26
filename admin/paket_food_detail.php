@@ -1,30 +1,31 @@
 <?php include_once 'lib/header.php';
     if(!isset($_GET['id'])){
-        echo "<script language=\"javascript\">window.location.href = 'paket.php';</script>";
+        echo "<script language=\"javascript\">window.location.href = '".BASE_URL."paket';</script>";
     }
-    $id = $_GET['id'];
+    // $id = $_GET['id'];
+    $data = explode("/",$_GET['id']);
 
-    include_once 'lib/db_conf.php';
+    // var_dump($data); die;
+  
+    $id = $data[0];
 
-    
     $sql = "SELECT * FROM `paket` WHERE `id`=$id";
 
     $data = mysqli_query($conn, $sql);
     $total_row = mysqli_num_rows($data);
     if($total_row == 0){
-        echo "<script language=\"javascript\">window.location.href = 'paket.php';</script>";
+        echo "<script language=\"javascript\">window.location.href = '".BASE_URL."paket';</script>";
     }
 
     //Apabila tombol tambah ditekan
     if(isset($_POST['tambah'])){
-        include_once 'lib/db_conf.php';
         $id_food = $_POST['nama'];
         $qty = $_POST['qty'];
         //Menambahkan makanan ke paket
         $sql = "INSERT INTO `konten_paket` SET `id_food`=$id_food, `id_paket`=$id, `food_qty`=$qty;";
 
         if(mysqli_query($conn, $sql)){
-            echo "<script language=\"javascript\">window.location.href = 'paket_food_detail.php?id=$id';</script>";
+            echo "<script language=\"javascript\">window.location.href = '".BASE_URL."paket/detail/$id';</script>";
         }
     }
 ?>
@@ -33,7 +34,7 @@
 
 <div class="card ml-3 mr-3">
     <div class="card-body">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" action="<?=BASE_URL;?>paket/detail/<?=$id;?>" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nama">Makanan</label>
                 <select class="form-control" id="nama" name="nama" title="Pilih Makanan" required>
