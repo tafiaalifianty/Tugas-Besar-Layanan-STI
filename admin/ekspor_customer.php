@@ -44,7 +44,7 @@
     );
 
     $writer = new Xlsx($spreadsheet);
-    $writer->save(BASE_URL.'ekspor/data_customer.xlsx');
+    $writer->save('ekspor/data_customer.xlsx');
 
     echo '<script>window.location.href = \''.BASE_URL.'ekspor/data_customer.xlsx\';
         setTimeout(function() {
