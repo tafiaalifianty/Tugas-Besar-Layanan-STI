@@ -1,5 +1,5 @@
 <?php
-    <?php
+   
     // $servername = "localhost";
     // $dbname = "foodordering";
     // $username = "root";
